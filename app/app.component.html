@@ -1,47 +1,14 @@
-<body>
-<h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes"
-    [class.selected]="hero === selectedHero"
-    (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
-  </li>
-</ul>
-
-<div *ngIf="selectedHero">
-
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    </label>
-  </div>
+<div class = "topnav">
+  <ul class = "topnav-ul">
+      <li><a routerLink="college">College</a></li>
+      <li><a routerLink="study">Study</a></li>
+      <li><a [routerLink]="['/stu', x]">Student</a>
+      </li>
+    </ul>
+    <router-outlet></router-outlet>
+    <!--<form (ngSubmit) = "delUser(f1)" #f1 = "ngForm">
+      <label>ID:</label><br>
+      <input type = "number" [(ngModel)] = "id3" name = "id3" placeholder = "Enter ID to delete"/><br><br>
+      <button type ="submit">Submit</button>
+    </form>-->
 </div>
-<div class = "lol">
-<h4>Add Hero</h4>
-<form (ngSubmit) = "addUser(f)" #f = "ngForm">
-  <label>ID:</label><br>
-  <input type = "number" [(ngModel)] = "id1" name = "id1" placeholder="Enter ID to add Hero"/><br>
-  <label>Name:</label><br>
-  <input type = "text" [(ngModel)] = "id2" name= "id2" placeholder="Enter Name to add Hero"/><br><br>
-  <button type ="submit">Submit</button>
-</form>
-<h4>Delete Hero</h4>
-<form (ngSubmit) = "delUser(f1)" #f1 = "ngForm">
-  <label>ID:</label><br>
-  <input type = "number" [(ngModel)] = "id3" name = "id3" placeholder = "Enter ID to delete"/><br><br>
-  <button type ="submit">Submit</button>
-</form>
-<h4>Update name of the Hero:</h4>
-Enter ID and updated name to update in the list!
-<form (ngSubmit) = "updateName(f2)" #f2 = "ngForm">
-  <label>ID:</label><br>
-  <input type = "number" [(ngModel)] = "id4" name = "id4" placeholder = "Enter ID to update the name"/><br>
-  <label>Name:</label><br>
-  <input type = "text" [(ngModel)] = "id5" name= "id5" placeholder="Enter Name"/><br><br>
-  <button type ="submit">Submit</button>
-</form>
-</div>
-</body>
-
